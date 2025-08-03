@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="Style.css">
 </head>
 <body> 
-    <div id="CursorAura"></div>
-    
-
     <section class="Top">
-        <div class="SquarePattern"></div>
+        <div id="CursorAura"><div class="SquarePattern"></div></div>
+        
         <div class="DotPattern"></div>
         <div class="DotPatternCache"></div>
 
@@ -59,7 +57,7 @@
         }
 
         #CursorAura {
-            background: radial-gradient(#ffffff, rgba(0, 0, 0, 0) 70%);
+            mask-image: radial-gradient(#ffffff, rgba(0, 0, 0, 0) 70%);
             width: 200px;
             height: 200px;
 
@@ -67,7 +65,9 @@
             left: 0;
             top: 0;
 
-            z-index: 4;
+            z-index: 3;
+
+            overflow: hidden;
         }
 
         .SquarePattern{
@@ -81,7 +81,7 @@
             background-image: repeating-linear-gradient(to bottom, transparent, transparent 99px, #ffffff5e 5px, #ffffff5e 100px),
                     repeating-linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 99px, #ffffff5e 5px, #ffffff5e 100px);
 
-            z-index: 3;
+            z-index: 4;
 
         }
 
@@ -189,8 +189,6 @@
 
             CursorAura.style.left = `${Math.min(Math.max(x - 100, 0), window.innerWidth - 200)}px`;
             CursorAura.style.top = `${Math.min(Math.max(y - 100, 0), window.innerHeight - 200)}px`;
-
-            console.log(x, window.innerWidth, y, window.innerHeight);
         }
     </script>
 </body>
