@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, render_template
 import os
 
 app = Flask(__name__)
@@ -7,5 +7,5 @@ app = Flask(__name__)
 def HomePage():
     return render_template("HomePage.html")
 
-if __name__ == "__main__" :
-    app.run(debug=True)
+#if __name__ == "__main__" :
+app.run(debug=True)
