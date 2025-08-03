@@ -4,8 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    <h1>Hello</h1>
+    <?php
+        #include_once("../Header.php")
+    ?>
+
+    <section class="Top">
+        <div class="DotPatternCache"></div>
+
+        <div class="Infos">
+            <img src="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" class="PlrAvatar">
+            <p>OPORTEA</p>
+            
+            <button class="ViewMoreBtn">View More</button>
+        </div>
+    </section>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --Font: "Roboto", sans-serif;
+            --TextColor: #ffffff;
+        }
+
+        body {
+            background-color: #111013;
+
+            background-image: radial-gradient(
+                #ffffff46 1px,
+                transparent 1px
+            );
+
+            background-size: 16px 16px;
+        }
+
+        p {
+            font-family: var(--Font);
+            font-size: 25px;
+            color: #ffffff;
+        }
+
+        .DotPatternCache {
+            width: 100vw;
+            height: 100vh;
+
+            background: linear-gradient(to bottom, #111013 75%, rgba(0, 0, 0, 0));
+        }
+
+        .Infos {
+            width: 100vw;
+            height: 100vh;
+            background: none;
+            
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .PlrAvatar, .ViewMoreBtn{
+            margin: 20px;
+        }
+
+        .PlrAvatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+        }
+
+        .ViewMoreBtn {
+            width: 150px;
+            height: 40px;
+            font-size: 17px;
+            color: #ffffff;
+            border-radius: 100px;
+            border: 1px #ffffff solid;
+            background: none;
+
+            transition: 0.25s;
+
+            text-shadow: 0 0 10px #ffffff;
+            box-shadow: 0 0 5px 1px #ffffff;
+        }
+
+        .ViewMoreBtn:hover {
+            color: #111013;
+            text-shadow: 0 0 0 #ffffff;
+            background-color: #ffffff;
+        }
+    </style>
 </body>
 </html>
