@@ -177,12 +177,18 @@
 
         document.addEventListener("mousemove", MoveCursor);
 
+        function clamp(val, min, max) {
+            const lower = Math.max(val, min);
+            const result = Math.min(lower, max);
+            return result;
+        }
+
         function MoveCursor(e) {
             let x = e.clientX;
             let y = e.clientY;
 
-            CursorAura.style.left = `${x}px`;
-            CursorAura.style.top = `${y}px`;
+            CursorAura.style.left = `${clamp(x - 100, -window.innerWidth - 100, window.innerWidth - 100)}px`;
+            CursorAura.style.top = `${clamp(y - 100, -window.innerHeight - 100, window.innerHeight - 100)}px`;
         }
     </script>
 </body>
