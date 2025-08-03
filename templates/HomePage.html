@@ -187,8 +187,7 @@
             CursorAura.style.left = `${Math.min(Math.max(x - 100, 0), window.innerWidth - 200)}px`;
             CursorAura.style.top = `${Math.min(Math.max(y - 100, 0), window.innerHeight - 200)}px`;
 
-            SquarePattern.style.left = `-${CursorAura.style.left - 100}px`;
-            SquarePattern.style.top = `-${CursorAura.style.top - 100}px`;
+            SquarePattern.style.transform = `translate(-${Math.min(Math.max(x - 100, 0), window.innerWidth - 200)}, -${Math.min(Math.max(y - 100, 0), window.innerHeight - 200)})`;
         }
     </script>
 </body>
