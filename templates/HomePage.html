@@ -11,9 +11,12 @@
 
     <link rel="stylesheet" href="Style.css">
 </head>
-<body>
+<body> 
+    <div id="CursorAura"></div>
+    
 
     <section class="Top">
+        <div class="SquarePattern"></div>
         <div class="DotPattern"></div>
         <div class="DotPatternCache"></div>
 
@@ -42,7 +45,6 @@
 
         body {
             background-color: #111013;
-            background: linear-gradient(to bottom, #111013 75%, rgba(0, 0, 0, 0));
         }
 
         p {
@@ -51,33 +53,66 @@
             color: #ffffff;
         }
 
+        section {
+            width: 100vh;
+            height: 100vw;
+        }
+
+        #CursorAura {
+            background: radial-gradient(#ffffff, rgba(0, 0, 0, 0) 70%);
+            width: 200px;
+            height: 200px;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            z-index: 11;
+        }
+
+        .SquarePattern{
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 100vw;
+            height: 100%;
+
+            background-image: repeating-linear-gradient(to bottom, transparent, transparent 99px, #ffffff5e 5px, #ffffff5e 100px),
+                    repeating-linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 99px, #ffffff5e 5px, #ffffff5e 100px);
+
+            z-index: 3;
+
+        }
+
         .DotPattern {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
 
-            background-image: radial-gradient(
+            background: radial-gradient(
                 #ffffff46 1px,
                 transparent 1px
             );
             background-size: 16px 16px;
             transition: 0.25s;
+            z-index: 1;
         }
 
         .DotPatternCache {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
 
             position: absolute;
             top: 0;
             left: 0;
 
             background: linear-gradient(to bottom, #111013 75%, rgba(0, 0, 0, 0));
-            transition: background-color 1s;
+            z-index: 2;
         }
 
         .Infos {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
             background: none;
             
             display: flex;
@@ -89,6 +124,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 4;
         }
 
         .PlrAvatar, .ViewMoreBtn{
@@ -108,7 +144,7 @@
             color: #ffffff;
             border-radius: 100px;
             border: 1px #ffffff solid;
-            background: none;
+            background: #111013;
 
             transition: 0.25s;
 
@@ -135,5 +171,19 @@
             font-size: 15px;
         }
     </style>
+
+    <script>
+        let CursorAura = document.querySelector("#CursorAura");
+
+        document.addEventListener("mousemove", MoveCursor);
+
+        function MoveCursor(e) {
+            let x = e.clientX;
+            let y = e.clientY;
+
+            CursorAura.style.left = `${x}px`;
+            CursorAura.style.top = `${y}px`;
+        }
+    </script>
 </body>
 </html>
