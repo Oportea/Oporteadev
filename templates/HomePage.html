@@ -173,7 +173,7 @@
 
     <script>
         let CursorAura = document.querySelector("#CursorAura");
-        let SquarePattern = document.querySelector(".SquarePattern")
+        let SquarePattern = document.querySelector(".SquarePattern");
 
         document.addEventListener("mousemove", MoveCursor);
 
@@ -190,8 +190,8 @@
             CursorAura.style.left = `${Math.min(Math.max(x - 100, 0), window.innerWidth - 200)}px`;
             CursorAura.style.top = `${Math.min(Math.max(y - 100, 0), window.innerHeight - 200)}px`;
 
-            SquarePattern.style.left = `-${CursorAura.style.left}px`
-            SquarePattern.style.top = `-${CursorAura.style.top}px`
+            SquarePattern.style.left = `-${CursorAura.style.left}px`;
+            SquarePattern.style.top = `-${CursorAura.style.top}px`;
         }
     </script>
 </body>
