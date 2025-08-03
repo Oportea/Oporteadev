@@ -187,8 +187,8 @@
             let x = e.clientX;
             let y = e.clientY;
 
-            CursorAura.style.left = `${clamp(x - 100, -window.innerWidth - 100, window.innerWidth - 100)}px`;
-            CursorAura.style.top = `${clamp(y - 100, -window.innerHeight - 100, window.innerHeight - 100)}px`;
+            CursorAura.style.left = `${Math.min(Math.max(x - 100, -window.innerWidth - 100), window.innerWidth - 100)}px`;
+            CursorAura.style.top = `${Math.min(Math.max(y - 100, -window.innerHeight - 100), window.innerHeight - 100)}px`;
         }
     </script>
 </body>
