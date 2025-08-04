@@ -13,10 +13,7 @@
 </head>
 <body> 
     <section class="Top">
-        <div id="CursorAura"><div class="SquarePattern"></div></div>
-        
-        <div class="DotPattern"></div>
-        <div class="DotPatternCache"></div>
+        <div class="SquarePattern"></div>
 
         <div class="Infos">
             <img src="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" class="PlrAvatar">
@@ -52,21 +49,12 @@
         }
 
         section {
-            width: 100vh;
-            height: 100vw;
-        }
-
-        #CursorAura {
-            mask-image: radial-gradient(#ffffff, rgba(0, 0, 0, 0) 70%);
-
-            width: 200px;
-            height: 200px;
+            width: 100vw;
+            height: 100vh;
 
             position: absolute;
-            left: 0;
             top: 0;
-
-            z-index: 3;
+            left: 0;
         }
 
         .SquarePattern{
@@ -77,39 +65,11 @@
             width: 100vw;
             height: 100vh;
 
-            background-image: repeating-linear-gradient(to bottom, transparent, transparent 99px, #ffffff5e 5px, #ffffff5e 100px),
-                    repeating-linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 99px, #ffffff5e 5px, #ffffff5e 100px);
+            background-image: repeating-linear-gradient(to bottom, transparent, transparent 84px, #ffffff15 5px, #ffffff15 85px),
+                    repeating-linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 84px, #ffffff15 5px, #ffffff15 85px);
 
             z-index: 4;
 
-        }
-
-        .DotPattern {
-            width: 100vw;
-            height: 100%;
-
-            background: radial-gradient(
-                #ffffff46 1px,
-                transparent 1px
-            );
-            background-size: 16px 16px;
-            transition: 0.25s;
-            z-index: 1;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .DotPatternCache {
-            width: 100vw;
-            height: 100%;
-
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            background: linear-gradient(to bottom, #111013 75%, rgba(0, 0, 0, 0));
-            z-index: 2;
         }
 
         .Infos {
@@ -159,10 +119,6 @@
             text-shadow: 0 0 0 #ffffff;
             background-color: #ffffff;
         }
-        
-        body:has(.ViewMoreBtn:hover) .DotPatternCache {
-            background: linear-gradient(to bottom, #111013 50%, rgba(0, 0, 0, 0));
-        }
 
         .UserName {
             font-weight: 600;
@@ -173,22 +129,5 @@
             font-size: 15px;
         }
     </style>
-
-    <script>
-        let CursorAura = document.querySelector("#CursorAura");
-        let SquarePattern = document.querySelector(".SquarePattern");
-
-        document.addEventListener("mousemove", MoveCursor);
-
-        function MoveCursor(e) {
-            let x = e.clientX;
-            let y = e.clientY;
-
-            CursorAura.style.left = `${Math.min(Math.max(x - 100, 0), window.innerWidth - 200)}px`;
-            CursorAura.style.top = `${Math.min(Math.max(y - 100, 0), window.innerHeight - 200)}px`;
-
-            SquarePattern.style.transform = `translate(-${Math.min(Math.max(x - 100, 0), window.innerWidth - 200)}, -${Math.min(Math.max(y - 100, 0), window.innerHeight - 200)})`;
-        }
-    </script>
 </body>
 </html>
