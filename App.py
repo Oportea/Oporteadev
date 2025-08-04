@@ -9,7 +9,7 @@ with open("Bot.py") as file:
 @app.route("/")
 def HomePage():
     x = requests.get('https://w3schools.com')
-    print(x.status_code)
+    return f"<h1>{x.status_code}</h1>"
 
     #return render_template("HomePage.html")
 
