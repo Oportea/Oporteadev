@@ -14,6 +14,30 @@
 <body> 
     <section class="Top">
         <div class="SquarePattern"></div>
+        
+        <div class="Decorations">
+            <div class="Cube" id="Cube1">
+                <div class="Face" id="Front"></div>
+                <div class="Face" id="Back"></div>
+                <div class="Face" id="Left"></div>
+                <div class="Face" id="Right"></div>
+                <div class="Face" id="Top"></div>
+                <div class="Face" id="Bottom"></div>
+            </div>
+
+            <div class="Cube" id="Cube2">
+                <div class="Face" id="Front"></div>
+                <div class="Face" id="Back"></div>
+                <div class="Face" id="Left"></div>
+                <div class="Face" id="Right"></div>
+                <div class="Face" id="Top"></div>
+                <div class="Face" id="Bottom"></div>
+            </div>
+            
+            <div class="Sphere" id="Sphere1"></div>
+            <div class="Sphere" id="Sphere2"></div>
+            <div class="Sphere" id="Sphere3"></div>
+        </div>
 
         <div class="Infos">
             <img src="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" class="PlrAvatar">
@@ -72,6 +96,126 @@
 
         }
 
+        .Decorations {
+            width: 100%;
+            height: 100%;
+            
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+            perspective: 1000px;
+            z-index: 4;
+        }
+
+        .Decorations div {
+            transition: 1s;
+        }
+
+        .Cube {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-style: preserve-3d;
+        }
+
+        #Cube1 {
+            top: 20%;
+            left: 20%;
+            transform: rotate3d(1, 1, 1, 45deg);
+        }
+
+        #Cube2 {
+            width: 75px;
+            height: 75px;
+            top: 50%;
+            left: 70%;
+            transform: rotate3d(1, 0, 3, 90deg);
+        }
+
+        .Face {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background: #ffffff;
+            box-sizing: border-box;
+            position: absolute;
+        }
+
+        #Front {
+            transform: translateZ(50px);
+        }
+        #Back {
+            transform: translateZ(-50px) rotateY(180deg);
+        }
+
+        #Left {
+            right: 50%;
+            transform: rotateY(-90deg);
+        }
+        #Right {
+            left: 50%;
+            transform: rotateY(90deg);
+            background-color: #c5c5c5;
+        }
+
+        #Top {
+            bottom: 50%;
+            transform: rotateX(90deg);
+        }
+        #Bottom {
+            top: 50%;
+            transform: rotateX(-90deg);
+            background-color: #727272;
+        }
+
+        #Cube2 #Front {
+            transform: translateZ(37px);
+            background-color: #eeeeee;
+        }
+        #Cube2 #Back {
+            transform: translateZ(-37px);
+        }
+        #Cube2 #Bottom {
+            background-color: #b3b3b3
+        }
+
+        #Cube2 #Right {
+            background-color: #727272
+        }
+
+        .Sphere {
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #Sphere1 {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            left: 30%;
+            background: linear-gradient(70deg, black, white);
+        }
+
+        #Sphere2 {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 70%;
+            background: linear-gradient(-50deg, black, white);
+        }
+
+        #Sphere3 {
+            width: 75px;
+            height: 75px;
+            top: 80%;
+            left: 60%;
+            background: linear-gradient(20deg, black, white);
+        }
+
         .Infos {
             width: 100vw;
             height: 100%;
@@ -112,12 +256,28 @@
 
             text-shadow: 0 0 10px #ffffff;
             box-shadow: 0 0 5px 1px #ffffff;
+
+            margin: 30px;
         }
 
         .ViewMoreBtn:hover {
             color: #111013;
             text-shadow: 0 0 0 #ffffff;
             background-color: #ffffff;
+        }
+
+        body:has(.ViewMoreBtn:hover) .Decorations #Cube1 {
+            animation: .25 FloatingCube1Transition ease-in-out;
+            animation-delay: 0.25s;
+            animation: 5s FloatingCube1 ease-in-out infinite;
+        }
+
+        body:has(.ViewMoreBtn:hover) .Decorations #Cube2 {
+            transform: translate3d(0, -30px, 0) rotate3d(1, 0, 3, 90deg);
+        }
+
+        body:has(.ViewMoreBtn:hover) .Decorations .Sphere {
+            transform: translate(0, -10px);
         }
 
         .UserName {
@@ -127,6 +287,44 @@
         .UserDescription {
             font-weight: 200;
             font-size: 15px;
+        }
+
+        @keyframes FloatingCube1Transition {
+            0% {
+                transform: translate3d(0, 0px, 0) rotate3d(1, 1, 1, 45deg);
+            }100% {
+                transform: translate3d(0, -30px, 0) rotate3d(1, 1, 1, 45deg);
+            }
+        }
+        @keyframes FloatingCube1 {
+            0% {
+                transform: translate3d(0, -30px, 0) rotate3d(1, 1, 1, 45deg);
+            }50% {
+                transform: translate3d(0, -20px, 0) rotate3d(1, 1, 1, 45deg);
+            }100% {
+                transform: translate3d(0, -30px, 0) rotate3d(1, 1, 1, 45deg);
+            }
+        }
+
+        @keyframes FloatingCube2Transition {
+            0% {
+                transform: translate3d(0, 0px, 0) rotate3d(1, 0, 3, 90deg)
+            }100% {
+                transform: translate3d(0, -30px, 0) rotate3d(1, 0, 3, 90deg)
+            }
+        }
+        @keyframes FloatingCube2 {
+            0% {
+                transform: translate3d(0, -30px, 0) rotate3d(1, 0, 3, 90deg);
+            }25% {
+                transform: translate3d(0, -25px, 0) rotate3d(1, 0, 3, 90deg);
+            }50% {
+                transform: translate3d(0, -30px, 0) rotate3d(1, 0, 3, 90deg);
+            }75% {
+                transform: translate3d(0, -25px, 0) rotate3d(1, 0, 3, 90deg);
+            }100% {
+                transform: translate3d(0, -30px, 0) rotate3d(1, 0, 3, 90deg);
+            }
         }
     </style>
 </body>
