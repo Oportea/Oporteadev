@@ -15,7 +15,7 @@
     <section class="Top">
         <div class="SquarePattern"></div>
         
-        <div class="Decorations">
+        <div class="PerspectiveField">
             <div class="Cube" id="Cube1">
                 <div class="Face" id="Front"></div>
                 <div class="Face" id="Back"></div>
@@ -97,7 +97,7 @@
 
         }
 
-        .Decorations {
+        .PerspectiveField {
             width: 100%;
             height: 100%;
             
@@ -109,7 +109,7 @@
             z-index: 4;
         }
 
-        .Decorations div {
+        .PerspectiveField div {
             transition: 1s;
         }
 
@@ -267,17 +267,17 @@
             background-color: #ffffff;
         }
 
-        body:has(.ViewMoreBtn:hover) .Decorations #Cube1 {
-            transform: translate3d(0, -30px, 0) rotate3d(1, 1, 1, 45deg);
-            animation: 5s ease-in-out 1s infinite FloatingCube1;
+        body:has(.ViewMoreBtn:hover) .PerspectiveField #Cube1 {
+            transform: translate3d(0, -30px, 0) rotate3d(1, 1, 1, 10deg);
         }
 
-        body:has(.ViewMoreBtn:hover) .Decorations #Cube2 {
-            transform: translate3d(0, -30px, 0) rotate3d(1, 0, 3, 90deg);
+        body:has(.ViewMoreBtn:hover) .PerspectiveField #Cube2 {
+            transform: translate3d(0, -30px, 0) rotate3d(1, 0, 3, 100deg);
         }
 
-        body:has(.ViewMoreBtn:hover) .Decorations .Sphere {
+        body:has(.ViewMoreBtn:hover) .PerspectiveField .Sphere {
             transform: translate(0, -10px);
+            rotate: 40deg;
         }
 
         .UserName {
