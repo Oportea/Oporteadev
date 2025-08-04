@@ -3,9 +3,6 @@ import requests
 
 app = Flask(__name__)
 
-with open("Bot.py") as file:
-    exec(file.read())
-
 @app.route("/")
 def HomePage():
     x = requests.get('https://w3schools.com')
