@@ -45,13 +45,13 @@
                 <svg width="100" height="100">
                     <mask id="SvgMask">
                         <circle fill="#fff" cx="50" cy="50" r="50"></circle>
-                        <circle fill="#000" cx="85" cy="85" r="15"></circle>
+                        <circle fill="#000" cx="90" cy="90" r="15"></circle>
                     </mask>
                     <image href="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" mask="url(#SvgMask)"></image>
                 </svg>
             </div>
             
-            <div class="Status" id="StatusInv"></div>
+            <div class="Status" id="StatusDnd"></div>
 
             <p class="UserName">OPORTEA</p>
 
@@ -78,8 +78,6 @@
             --Status_Dnd: #D83A42;
             --Status_Sleep: #CA9654;
             --Status_Inv: #82838B;
-
-            --Info: #3f4155;
         }
 
         body {
@@ -295,12 +293,13 @@
             width: 20px;
             height: 20px;
             
-            transform: translate(35px, -45px);
+            transform: translate(40px, -40px);
+            border-radius: 50%;
             
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
+            mask: url(#SvgMask2);
         }
 
         #StatusInv {
@@ -331,11 +330,6 @@
             height: 5px;
             background-color: var(--PrimaryColor);
             border-radius: 100px;
-        }
-
-        #StatusSleep {
-            background-color: var(--Status_Sleep);
-            mask: radial-gradient(10px at 4px 4px,#0000 98%,#000);
         }
 
         .ViewMoreBtn {
