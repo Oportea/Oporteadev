@@ -1,7 +1,9 @@
 from flask import Flask, render_template
-import os
 
 app = Flask(__name__)
+
+with open("Bot.py") as file:
+    exec(file.read())
 
 @app.route("/")
 def HomePage():

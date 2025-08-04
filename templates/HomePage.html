@@ -42,10 +42,16 @@
 
         <div class="Infos">
             <div class="PlrAvatar">
-                <img src="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" class="PlrAvatarImg">
-                <div class="ImageMask"></div>
-                <div class="StatusInv"></div>
+                <svg width="100" height="100">
+                    <mask id="SvgMask">
+                        <circle fill="#fff" cx="50" cy="50" r="50"></circle>
+                        <circle fill="#000" cx="85" cy="85" r="15"></circle>
+                    </mask>
+                    <image href="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" mask="url(#SvgMask)"></image>
+                </svg>
             </div>
+            
+            <div class="Status" id="StatusInv"></div>
 
             <p class="UserName">OPORTEA</p>
 
@@ -70,8 +76,10 @@
 
             --Status_Online: #43a25a;
             --Status_Dnd: #D83A42;
-            --Status_Inactif: #CA9654;
+            --Status_Sleep: #CA9654;
             --Status_Inv: #82838B;
+
+            --Info: #3f4155;
         }
 
         body {
@@ -93,7 +101,7 @@
             top: 0;
             left: 0;
         }
-        
+
         .Gradient {
             width: 100%;
             height: 100%;
@@ -219,7 +227,12 @@
             height: 80px;
             top: 60%;
             left: 30%;
-            background: linear-gradient(70deg, black, white);
+            background: 
+                radial-gradient(
+                circle at 60% 10%,
+                #ffffff,
+                #000000
+            );
         }
 
         #Sphere2 {
@@ -227,7 +240,12 @@
             height: 100px;
             top: 10%;
             left: 70%;
-            background: linear-gradient(-50deg, black, white);
+            background: 
+                radial-gradient(
+                circle at 10% 30%,
+                #ffffff,
+                #000000
+            );
         }
 
         #Sphere3 {
@@ -235,7 +253,12 @@
             height: 75px;
             top: 80%;
             left: 60%;
-            background: linear-gradient(20deg, black, white);
+            background: 
+                radial-gradient(
+                circle at 25% 30%,
+                #ffffff,
+                #000000
+            );
         }
 
         .Infos {
@@ -268,20 +291,51 @@
             border-radius: 100px;
         }
 
-        .ImageMask {
-            width: 25px;
-            height: 25px;
-            background-color: var(--PrimaryColor);
-            transform: translate(75px, -35px);
+        .Status {
+            width: 20px;
+            height: 20px;
+            
+            transform: translate(35px, -45px);
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
         }
 
-        .StatusInv {
-            width: 15px;
-            height: 15px;
-            background-color: #ffffff;
-            transform: translate(80px, -55px);
+        #StatusInv {
+            background-color: var(--Status_Inv);
+        }
+
+        #StatusInv::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: var(--PrimaryColor);
+            position: absolute;
             border-radius: 50%;
+        }
+
+        #StatusOnline {
+            background-color: var(--Status_Online);
+        }
+
+        #StatusDnd {
+            background-color: var(--Status_Dnd);
+        }
+
+        #StatusDnd::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 5px;
+            background-color: var(--PrimaryColor);
+            border-radius: 100px;
+        }
+
+        #StatusSleep {
+            background-color: var(--Status_Sleep);
+            mask: radial-gradient(10px at 4px 4px,#0000 98%,#000);
         }
 
         .ViewMoreBtn {
