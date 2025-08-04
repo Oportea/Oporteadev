@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def HomePage():
-    x = requests.get('https://w3schools.com')
-    return f"<h1>{x.status_code}</h1>"
+    x = requests.get('https://api.lanyard.rest/v1/users/1359617287690391724')
+    return f"<h1>{x}</h1>"
 
     #return render_template("HomePage.html")
 
