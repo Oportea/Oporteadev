@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def HomePage():
     Request = requests.get('https://api.lanyard.rest/v1/users/1359617287690391724')
-    return f"<h1>{codecs.decode(Request.content)}</h1>"
+    return f"<p>{jsonify(codecs.decode(Request.content))}</p>"
 
     #return render_template("HomePage.html")
 
