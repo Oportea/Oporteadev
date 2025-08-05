@@ -8,7 +8,7 @@ app = Flask(__name__)
 def HomePage():
     x = requests.get('https://api.lanyard.rest/v1/users/1359617287690391724')
     
-    return f"<h1>{struct.unpack('>d', x.content)[0]}</h1>"
+    return struct.unpack('>d', x.content)[0]
 
     #return render_template("HomePage.html")
 
