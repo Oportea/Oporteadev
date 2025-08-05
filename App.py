@@ -15,7 +15,7 @@ def HomePage():
     #idle
     #offline
 
-    return render_template("HomePage.html", Status=f'<div id="Status" id="Status_{json.loads(Content)["data"]["discord_status"]}"></div>')
+    return render_template("HomePage.html", Status=json.loads(Content)["data"]["discord_status"])
 
 if __name__ == "__main__" :
     app.run(debug=True)
