@@ -49,9 +49,8 @@
                     </mask>
                     <image href="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" mask="url(#SvgMask)"></image>
                 </svg>
+                {{Status}}
             </div>
-            
-            <div class="Status" id="StatusDnd"></div>
 
             <p class="UserName">OPORTEA</p>
 
@@ -292,21 +291,22 @@
         .Status {
             width: 20px;
             height: 20px;
-            
-            transform: translate(40px, -40px);
             border-radius: 50%;
+
+            transform: translate(80px, -24px);
             
             display: flex;
             justify-content: center;
             align-items: center;
-            mask: url(#SvgMask2);
+
+            transition: .5s;
         }
 
-        #StatusInv {
+        #Status_offline {
             background-color: var(--Status_Inv);
         }
 
-        #StatusInv::before {
+        #Status_offline::before {
             content: "";
             width: 10px;
             height: 10px;
@@ -315,21 +315,27 @@
             border-radius: 50%;
         }
 
-        #StatusOnline {
+        #Status_online {
             background-color: var(--Status_Online);
         }
 
-        #StatusDnd {
+        #Status_dnd {
             background-color: var(--Status_Dnd);
         }
 
-        #StatusDnd::before {
+        #Status_dnd::before {
             content: "";
             position: absolute;
             width: 15px;
             height: 5px;
             background-color: var(--PrimaryColor);
             border-radius: 100px;
+        }
+
+        #Status_idle {
+            background-image: radial-gradient(rgba(0, 0, 0, 0) 50%, var(--Status_Sleep) 50%);
+            background-position: -11px -11px;
+            background-size: 30px 30px;
         }
 
         .ViewMoreBtn {
