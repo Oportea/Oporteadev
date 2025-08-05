@@ -77,6 +77,8 @@
             --Status_Dnd: #D83A42;
             --Status_Sleep: #CA9654;
             --Status_Inv: #82838B;
+
+            --Status: {{Status}};
         }
 
         body {
@@ -386,5 +388,14 @@
             font-size: 15px;
         }
     </style>
+
+    <script>
+        const root = document.documentElement;
+        const Status = getComputedStyle(root).getPropertyValue('--Status');
+
+        const StatusDiv = document.querySelector(".Status");
+
+        StatusDiv.className + Status;
+    </script>
 </body>
 </html>
