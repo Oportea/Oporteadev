@@ -8,7 +8,7 @@ app = Flask(__name__)
 def HomePage():
     Request = requests.get('https://api.lanyard.rest/v1/users/1359617287690391724')
     Content = codecs.decode(Request.content)
-    return Content["data"]["discord_status"]
+    return Content[0][3]
 
     #return render_template("HomePage.html")
 
