@@ -8,9 +8,7 @@ app = Flask(__name__)
 def HomePage():
     Request = requests.get('https://api.lanyard.rest/v1/users/1359617287690391724')
     Content = codecs.decode(Request.content)
-    Content = Content.removeprefix('"')
-    Content = Content.removesuffix('"')
-    return jsonify(Content)
+    return Content
 
     #return render_template("HomePage.html")
 
