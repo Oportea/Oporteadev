@@ -41,23 +41,31 @@
         </div>
 
         <div class="Infos">
-            <div class="PlrAvatar">
-                <svg width="100" height="100">
-                    <mask id="SvgMask">
-                        <circle fill="#fff" cx="50" cy="50" r="50"></circle>
-                        <circle fill="#000" cx="90" cy="90" r="15"></circle>
-                    </mask>
-                    <image href="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" mask="url(#SvgMask)"></image>
-                </svg>
-                <div class="Status" id="Status"></div>
+            <div class="InfosCard">
+                <div class="PlrAvatar">
+                    <svg width="100" height="100">
+                        <mask id="SvgMask">
+                            <circle fill="#fff" cx="50" cy="50" r="50"></circle>
+                            <circle fill="#000" cx="90" cy="90" r="15"></circle>
+                        </mask>
+                        <image href="https://cdn.discordapp.com/avatars/1359617287690391724/83740ec5c30b02ecdd557a4c6bfb120b.webp?size=100" mask="url(#SvgMask)"></image>
+                    </svg>
+                    <div class="Status" id="Status"></div>
+                </div>
+
+                <p class="UserName">OPORTEA</p>
+
+                <p class="UserDescription">Roblox devlopper</p>
+                
+                <form action="#InfosSection">
+                    <button class="ViewMoreBtn">View More</button>
+                </form>
             </div>
-
-            <p class="UserName">OPORTEA</p>
-
-            <p class="UserDescription">Roblox devlopper</p>
-            
-            <button class="ViewMoreBtn">View More</button>
         </div>
+    </section>
+
+    <section class="InfosSection" id="InfosSection">
+
     </section>
 
 
@@ -95,10 +103,6 @@
         section {
             width: 100vw;
             height: 100vh;
-
-            position: absolute;
-            top: 0;
-            left: 0;
         }
 
         .Gradient {
@@ -264,18 +268,37 @@
             width: 100vw;
             height: 100%;
             background: none;
-            
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+
             display: flex;
             flex-direction: column;
 
             align-items: center;
             justify-content: center;
 
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 5;
+            transition: .5s;
         }
+
+        .InfosCard {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            background-color: #ffffff11;
+            padding: 25px;
+            backdrop-filter: blur(2px);
+            border-radius: 10px;
+
+            perspective: 100px;
+            border: 2px solid rgba(255, 255, 255, 0.23);
+        }
+        
 
         .PlrAvatar, .ViewMoreBtn{
             margin: 20px;
@@ -284,6 +307,7 @@
         .PlrAvatar {
             width: 100px;
             height: 100px;
+            border-radius: 50%;
         }
 
         .PlrAvatar img {
@@ -349,7 +373,7 @@
             border: 1px #ffffff solid;
             background: var(--PrimaryColor);
 
-            transition: 0.25s;
+            transition: 0.5s;
 
             text-shadow: 0 0 10px #ffffff;
             box-shadow: 0 0 5px 1px #ffffff;
@@ -361,14 +385,32 @@
             color: var(--PrimaryColor);
             text-shadow: 0 0 0 #ffffff;
             background-color: #ffffff;
+            border: 1px solid #000000;
+            cursor: pointer;
+
+            box-shadow: 0px 1px 2px #ffffff,
+                0px 3px 2px #ffffff,
+                0px 5px 2px #ffffff,
+                0px 7px 2px #ffffff,
+                0px 9px 2px #ffffff,
+                0px 11px 2px #ffffff;
         }
 
-        body:has(.ViewMoreBtn:hover) .Gradient {
-            background-size: 100% 100%;
+        /*body:has(.ViewMoreBtn:hover) .ButtonShadow {
+            transform: translateY(105px);
+            box-shadow:0 0 5px 1px #ffffff;
+        }*/
+
+        body:has(.ViewMoreBtn:hover) .Infos{
+            transform: rotateX(15deg);
+        }
+
+        body:has(.ViewMoreBtn:hover) .Infos {
+            backdrop-filter: blur(5px);
         }
 
         body:has(.ViewMoreBtn:hover) .PerspectiveField #Cube1 {
-            transform: translate3d(0, -30px, 0) rotate3d(1, 1, 1, 10deg);
+            transform: translate3d(0, -30px, 0) rotate3d(1, 1, 1, 25deg);
         }
 
         body:has(.ViewMoreBtn:hover) .PerspectiveField #Cube2 {
@@ -386,6 +428,18 @@
         .UserDescription {
             font-weight: 200;
             font-size: 15px;
+        }
+
+
+
+        .InfosSection {
+            background-color: white;
+            z-index: 7;
+            width: 100vw;
+            height: 100vh;
+
+            position: absolute;
+            top: 100vh;
         }
     </style>
 
